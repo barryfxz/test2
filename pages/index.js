@@ -1,67 +1,49 @@
+import { useAccount, useDisconnect, useChainId } from 'wagmi'
 import { useState } from 'react'
-import { useAccount, useDisconnect, useNetwork } from 'wagmi'
-import { useWeb3Modal } from '@web3modal/react'
 
 export default function Home() {
-  const { open } = useWeb3Modal()
   const { address, isConnected } = useAccount()
   const { disconnect } = useDisconnect()
-  const { chain } = useNetwork()
+  const chainId = useChainId()
 
-  const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState('')
 
   const connectWallet = async () => {
     try {
-      setLoading(true)
       setStatus('')
-      await open()
-      setStatus('Wallet connected successfully')
+      await window.appkit.open()
     } catch (err) {
       console.error(err)
       setStatus('Connection failed')
-    } finally {
-      setLoading(false)
     }
   }
 
   return (
     <main style={{
-      background: '#020617',
       minHeight: '100vh',
+      background: '#020617',
       display: 'flex',
-      justifyContent: 'center',
       alignItems: 'center',
+      justifyContent: 'center',
       color: '#fff'
     }}>
       <div style={{
-        border: '1px solid #1e293b',
-        borderRadius: '18px',
-        padding: '30px',
         width: '420px',
+        padding: '32px',
+        borderRadius: '18px',
+        border: '1px solid #1e293b',
         textAlign: 'center'
       }}>
-        <h2>Connect Wallet</h2>
+        <h2>Wallet Connection</h2>
         <p style={{ color: '#94a3b8' }}>
-          WalletConnect v2 • Web3Modal
+          Reown AppKit (WalletConnect)
         </p>
-
-        {loading && (
-          <div style={{
-            width: '28px',
-            height: '28px',
-            margin: '20px auto',
-            border: '3px solid #334155',
-            borderTop: '3px solid white',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite'
-          }} />
-        )}
 
         {!isConnected ? (
           <button
             onClick={connectWallet}
             style={{
+              marginTop: '20px',
               width: '100%',
               padding: '14px',
               borderRadius: '12px',
@@ -75,11 +57,11 @@ export default function Home() {
           </button>
         ) : (
           <>
-            <div style={{ marginTop: '12px', color: '#22c55e' }}>
+            <div style={{ marginTop: '16px', color: '#22c55e' }}>
               Connected: {address.slice(0, 6)}...{address.slice(-4)}
             </div>
-            <div style={{ color: '#94a3b8' }}>
-              Network: {chain?.name}
+            <div style={{ color: '#94a3b8', marginTop: '6px' }}>
+              Chain ID: {chainId}
             </div>
             <button
               onClick={() => disconnect()}
@@ -103,18 +85,12 @@ export default function Home() {
         {status && (
           <div style={{
             marginTop: '14px',
-            color: status.includes('failed') ? '#ef4444' : '#22c55e'
+            color: '#ef4444'
           }}>
             {status}
           </div>
         )}
       </div>
-
-      <style jsx>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </main>
   )
 }
