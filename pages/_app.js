@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import { WagmiProvider, createConfig } from 'wagmi'
 import { mainnet } from 'wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -44,3 +44,4 @@ export default function App({ Component, pageProps }) {
     </WagmiProvider>
   )
 }
+
