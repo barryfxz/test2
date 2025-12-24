@@ -1,57 +1,42 @@
 body {
-  margin: 0;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  color: white;
-  height: 100vh;
+  background: #020617;
+  color: #e5e7eb;
+  font-family: Inter, system-ui;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
-  border-radius: 22px;
-  padding: 38px;
-  width: 420px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 32px;
+  border-radius: 16px;
+  width: 360px;
   text-align: center;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 40px 120px rgba(0,0,0,.7);
-  animation: fadeIn .5s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  box-shadow: 0 0 40px rgba(99,102,241,0.25);
 }
 
 button {
-  margin-top: 26px;
-  width: 100%;
-  padding: 16px;
-  font-size: 15px;
-  border-radius: 16px;
+  background: linear-gradient(135deg,#6366f1,#4338ca);
   border: none;
-  cursor: pointer;
   color: white;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  transition: transform .15s ease, box-shadow .15s ease;
+  padding: 14px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(99,102,241,.5);
+  box-shadow: 0 12px 30px rgba(99,102,241,0.5);
 }
 
-.address {
-  margin-top: 22px;
-  font-size: 14px;
-  word-break: break-all;
-  color: #c7d2fe;
-}
-
-.status {
-  margin-top: 10px;
+pre {
+  text-align: left;
+  margin-top: 16px;
   font-size: 13px;
-  color: #22c55e;
+  color: #a5b4fc;
 }
