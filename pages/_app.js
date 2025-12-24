@@ -1,34 +1,43 @@
-import '../styles/globals.css'
-import { WagmiConfig, createClient, configureChains } from 'wagmi'
-import { mainnet, sepolia } from 'wagmi/chains'
-import { w3mProvider, w3mConnectors } from '@web3modal/ethereum'
-import { EthereumClient } from '@web3modal/ethereum'
-import { Web3Modal } from '@web3modal/react'
+import '@/styles/globals.css'
+import { WagmiProvider, createConfig } from 'wagmi'
+import { mainnet } from 'wagmi/chains'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+import { createAppKit } from '@reown/appkit'
+import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 
 const projectId = '962425907914a3e80a7d8e7288b23f62'
 
-const { chains, provider } = configureChains(
-  [mainnet, sepolia],
-  [w3mProvider({ projectId })]
-)
-
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors: w3mConnectors({ projectId, chains }),
-  provider
+const wagmiAdapter = new WagmiAdapter({
+  projectId,
+  networks: [mainnet]
 })
 
-const ethereumClient = new EthereumClient(wagmiClient, chains)
+const wagmiConfig = createConfig({
+  chains: [mainnet],
+  transports: wagmiAdapter.transports
+})
+
+const queryClient = new QueryClient()
+
+createAppKit({
+  adapters: [wagmiAdapter],
+  projectId,
+  networks: [mainnet],
+  metadata: {
+    name: 'WalletConnect Test',
+    description: 'Sleek Wallet Connect UI',
+    url: 'http://localhost:3000',
+    icons: ['https://walletconnect.com/walletconnect-logo.png']
+  }
+})
 
 export default function App({ Component, pageProps }) {
   return (
-    <WagmiConfig client={wagmiClient}>
-      <Component {...pageProps} />
-      <Web3Modal
-        projectId={projectId}
-        ethereumClient={ethereumClient}
-        themeMode="dark"
-      />
-    </WagmiConfig>
+    <WagmiProvider config={wagmiConfig}>
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
+    </WagmiProvider>
   )
 }
