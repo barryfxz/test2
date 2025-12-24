@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import { createAppKit } from '@reown/appkit'
 
 const projectId = '962425907914a3e80a7d8e7288b23f62'
@@ -23,3 +23,4 @@ createAppKit({
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
+
