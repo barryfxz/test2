@@ -16,8 +16,9 @@ export default function Home() {
       setLoading(true)
       setStatus('')
       await open()
-      setStatus('Connected successfully')
-    } catch {
+      setStatus('Wallet connected successfully')
+    } catch (err) {
+      console.error(err)
       setStatus('Connection failed')
     } finally {
       setLoading(false)
@@ -40,9 +41,9 @@ export default function Home() {
         width: '420px',
         textAlign: 'center'
       }}>
-        <h2>Wallet Connection Test</h2>
+        <h2>Connect Wallet</h2>
         <p style={{ color: '#94a3b8' }}>
-          Web3Modal v2 – Stable Build
+          WalletConnect v2 • Web3Modal
         </p>
 
         {loading && (
