@@ -3,28 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <title>WalletConnect Vanilla</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="stylesheet" href="./styles.css" />
-
-  <!-- WalletConnect Provider -->
-  <script src="https://unpkg.com/@walletconnect/ethereum-provider@2.11.2/dist/index.umd.js"></script>
-
-  <!-- WalletConnect Official Modal -->
-  <script src="https://unpkg.com/@walletconnect/modal@2.6.2/dist/index.umd.js"></script>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
   <div class="card">
-    <h2>Connect Wallet</h2>
-    <p>WalletConnect v2 · Vanilla JS</p>
+    <h1>Connect Wallet</h1>
 
     <button id="connectBtn">Connect Wallet</button>
 
-    <div id="address" class="address"></div>
-    <div id="status" class="status"></div>
+    <pre id="status"></pre>
+    <pre id="address"></pre>
   </div>
 
-  <script src="./app.js"></script>
+  <!-- MUST be module -->
+  <script type="module" src="/main.js"></script>
 </body>
 </html>
