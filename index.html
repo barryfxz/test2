@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WalletConnect Vanilla</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- WalletConnect Provider -->
+  <script src="https://unpkg.com/@walletconnect/ethereum-provider@2.11.2/dist/index.umd.js"></script>
+
+  <!-- Web3Modal Standalone -->
+  <script src="https://unpkg.com/@web3modal/standalone@2.4.3/dist/index.js"></script>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Connect Wallet</h2>
+    <p>WalletConnect v2 · Vanilla JS</p>
+
+    <button id="connectBtn">Connect Wallet</button>
+
+    <div id="address" class="address"></div>
+    <div id="status" class="status"></div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
