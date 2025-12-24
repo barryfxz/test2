@@ -21,7 +21,7 @@ async function init() {
     themeVariables: {
       "--w3m-accent-color": "#6366f1",
       "--w3m-background-color": "#020617",
-      "--w3m-border-radius-master": "20px"
+      "--w3m-border-radius-master": "18px"
     }
   });
 
@@ -36,30 +36,22 @@ async function init() {
       method: "eth_accounts"
     });
 
-    // Show wallet address & success animation
-    const addressEl = document.getElementById("address");
-    const successEl = document.getElementById("success");
+    document.getElementById("address").textContent =
+      accounts[0];
 
-    addressEl.textContent = accounts[0];
-    addressEl.classList.remove("hidden");
-    successEl.classList.remove("hidden");
+    document.getElementById("connectBtn").classList.add("connected");
+    document.querySelector(".btn-text").textContent = "Connected";
 
-    // Change button state
-    const btn = document.getElementById("connectBtn");
-    btn.classList.add("connected");
-    btn.querySelector(".btn-text").textContent = "Connected";
+    document.getElementById("success").classList.remove("hidden");
 
     modal.closeModal();
   });
 }
 
-// Button click triggers WalletConnect
 document.getElementById("connectBtn").addEventListener("click", async () => {
   if (isConnected) return;
-  const btn = document.getElementById("connectBtn");
-  btn.classList.add("loading");
+  document.getElementById("connectBtn").classList.add("loading");
   await provider.connect();
-  btn.classList.remove("loading");
 });
 
 await init();
