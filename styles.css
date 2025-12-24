@@ -3,9 +3,8 @@
 }
 
 body {
-  margin: 0;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  font-family: 'Inter', system-ui;
+  background: radial-gradient(circle at top, #1e1b4b, #020617);
+  font-family: Inter, system-ui;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -15,38 +14,29 @@ body {
 
 .card {
   background: rgba(2,6,23,0.85);
-  backdrop-filter: blur(18px);
-  border-radius: 24px;
-  padding: 42px;
-  width: 400px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(99,102,241,0.25);
+  padding: 36px;
+  width: 380px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 0 80px rgba(99,102,241,0.35);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 25px 60px rgba(99,102,241,0.45);
+  box-shadow: 0 0 60px rgba(99,102,241,0.35);
 }
 
 .logo {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   background: linear-gradient(135deg,#6366f1,#4338ca);
-  border-radius: 16px;
+  border-radius: 14px;
   display: grid;
   place-items: center;
   font-weight: 800;
-  font-size: 24px;
   margin: 0 auto 16px;
-  color: white;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
 .subtitle {
   color: #94a3b8;
-  margin-bottom: 28px;
-  font-size: 14px;
+  margin-bottom: 24px;
 }
 
 button {
@@ -55,23 +45,22 @@ button {
   padding: 16px;
   font-size: 16px;
   font-weight: 600;
-  border-radius: 18px;
+  border-radius: 14px;
   border: none;
   cursor: pointer;
   background: linear-gradient(135deg,#6366f1,#4338ca);
   color: white;
-  transition: all 0.25s ease;
-  overflow: hidden;
+  transition: all .25s ease;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 50px rgba(99,102,241,0.5);
+  box-shadow: 0 20px 40px rgba(99,102,241,.5);
 }
 
 button.loading {
   pointer-events: none;
-  opacity: 0.85;
+  opacity: .85;
 }
 
 button.connected {
@@ -83,8 +72,8 @@ button.connected {
 }
 
 .success {
-  margin-top: 26px;
-  animation: fadeIn 0.5s ease forwards;
+  margin-top: 24px;
+  animation: fadeIn .4s ease forwards;
 }
 
 .success .check {
@@ -95,18 +84,17 @@ button.connected {
 .success-text {
   font-weight: 600;
   margin-top: 6px;
-  font-size: 15px;
-}
-
-.wallet-address {
-  margin-top: 18px;
-  font-size: 13px;
-  color: #a5b4fc;
-  word-break: break-all;
 }
 
 .hidden {
   display: none;
+}
+
+pre {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #a5b4fc;
+  word-break: break-all;
 }
 
 @keyframes fadeIn {
