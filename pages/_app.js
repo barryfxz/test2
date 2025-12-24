@@ -1,9 +1,10 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import { WagmiProvider, createConfig, http } from 'wagmi'
 import { mainnet, sepolia } from 'wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createAppKit } from '@reown/appkit'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
+
 
 const projectId = '962425907914a3e80a7d8e7288b23f62'
 
@@ -45,3 +46,4 @@ export default function App({ Component, pageProps }) {
     </WagmiProvider>
   )
 }
+
