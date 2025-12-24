@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #1e293b, #020617);
+  background: radial-gradient(circle at top, #0f172a, #020617);
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   color: white;
   height: 100vh;
@@ -10,30 +10,27 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-  border-radius: 20px;
-  padding: 36px;
-  width: 400px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+  border-radius: 22px;
+  padding: 38px;
+  width: 420px;
   text-align: center;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 40px 120px rgba(0,0,0,.7);
+  animation: fadeIn .5s ease;
 }
 
-h2 {
-  margin-bottom: 6px;
-}
-
-p {
-  font-size: 14px;
-  opacity: 0.8;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 button {
-  margin-top: 22px;
+  margin-top: 26px;
   width: 100%;
-  padding: 15px;
+  padding: 16px;
   font-size: 15px;
-  border-radius: 14px;
+  border-radius: 16px;
   border: none;
   cursor: pointer;
   color: white;
@@ -42,8 +39,8 @@ button {
 }
 
 button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(99,102,241,.4);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(99,102,241,.5);
 }
 
 .address {
